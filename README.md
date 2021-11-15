@@ -11,3 +11,7 @@ javac TimeClient.java
 java TimeServer
 java TimeClient 127.0.0.1
 ```
+
+# Usefull Links
+
+- [Alternatives to Deprecated Methods in java.lang, java.net, and java.util](https://www.iitk.ac.in/esc101/05Aug/tutorial/post1.0/converting/deprecated.html)

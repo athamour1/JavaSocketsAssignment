@@ -1,12 +1,3 @@
-// The TimeServer for the time service...
-// Using UDP Datagrams and port number 8505
-// How to run directions together with TimeClient.java:
-// 1) Open a cmd window 
-// 2) Compile: javac TimeServer.java
-// 3) Execute: java TimeServer 
-// 4) Open a sepatare dos window (dont close TimeServer cmd window!!!!!) 
-// 5) Compile: javac TimeClient.java
-// 6)Execute: java TimeClient 127.0.0.1 
 import java.io.*;
 import java.net.*;
 import java.util.*; // For the date functions...
@@ -39,9 +30,9 @@ public class TimeServer {
                 e.toString());
             }
             // Get the client info
-            InetAddress cl = packet.getAddress();
+            InetAddress clientsIp = packet.getAddress();
             int port = packet.getPort();
-            System.out.println("Client from " + cl.getHostAddress() 
+            System.out.println("Client from " + clientsIp.getHostAddress() 
                 + ":" + port + " requested the time.");
             // Construct the response and sent it back...
             //String localtime = new Date().toString();
@@ -53,11 +44,12 @@ public class TimeServer {
 
             // Convert the localtime string to an array 
             // of bytes
-            localtime.getBytes(0, localtime.length(), buf, 0);
+            // localtime.getBytes(0, localtime.length(), buf, 0);
+            buf=localtime.getBytes(); 
             // Construct the packet
             try {
                 packet = new DatagramPacket(buf,
-                buf.length, cl, port);
+                buf.length, clientsIp, port);
                 // Send it!
                 s.send(packet);
             } catch (Exception e) {

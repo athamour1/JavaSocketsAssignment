@@ -20,7 +20,7 @@ public class TimeClient {
             // Now, get the reply
             System.out.println("Waiting for reply...");
             serversoc.receive(packet);
-            String mesg = new String(packet.getData(), 0);
+            String mesg = new String(packet.getData());
             // Print the server"s time
             System.out.println("Time at server location "
                     + packet.getAddress() + ":"

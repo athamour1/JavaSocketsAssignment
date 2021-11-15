@@ -1,5 +1,6 @@
 # Java Sockets Assignment
 This is an assignment 
+[![asciicast](https://asciinema.org/a/449329.svg)](https://asciinema.org/a/449329)
 # Dependacies
 - javac 11.0.11
 
